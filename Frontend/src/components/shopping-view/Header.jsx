@@ -8,7 +8,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel, AlertDialogAction } from "../ui/alert-dialog";
 import { Avatar, AvatarFallback } from '../ui/avatar'
 import { useDispatch, useSelector } from 'react-redux'
-import { logOutUser } from '@/store/auth-slice/authSlice'
+import { logOutUser, resetTokenAndCredentials } from '@/store/auth-slice/authSlice'
 import UserCartWrapper from './cartWrapper'
 import { fetchCartItems } from '@/store/shop-slice/cartSlice'
 
@@ -125,7 +125,12 @@ const HeaderRightContent = () => {
 
 
   const handleLogout = () => {
-    dispatch(logOutUser());
+    // dispatch(logOutUser());
+    // navigate("/");
+
+    //for deploy
+    dispatch(resetTokenAndCredentials);
+    sessionStorage.clear();
     navigate("/");
   }
 

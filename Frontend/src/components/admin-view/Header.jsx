@@ -1,7 +1,7 @@
 import React from 'react'
 import { AlignJustify, LogOut } from "lucide-react"
 import { useDispatch } from 'react-redux'
-import { logOutUser } from '../../store/auth-slice/authSlice'
+import { logOutUser, resetTokenAndCredentials } from '../../store/auth-slice/authSlice'
 import { Button } from '../ui/button'
 import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel, AlertDialogAction } from "../ui/alert-dialog";
 import { useNavigate } from 'react-router-dom'
@@ -13,7 +13,11 @@ const AdminHeader = ({ setOpen }) => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    dispatch(logOutUser());
+    // dispatch(logOutUser());
+
+    dispatch(resetTokenAndCredentials);
+        sessionStorage.clear();
+        navigate("/");
   }
 
   return (
