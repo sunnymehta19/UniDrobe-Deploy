@@ -10,7 +10,7 @@ import AdminFeatures from './pages/admin-view/Features'
 import AdminOrders from './pages/admin-view/Orders'
 import AdminProducts from './pages/admin-view/Products'
 
-import NotFound from './pages/not-found/notFound'
+import NotFound from "./pages/not-found/NotFound"
 
 import ShoppingLayout from './components/shopping-view/ShoppingLayout'
 import ShoppingAccount from './pages/shopping-view/Account'
@@ -106,12 +106,6 @@ function App() {
           <Route path='products' element={<AdminProducts />} />
         </Route>
 
-        {/* <Route path="/footer" element={<Footer />}>
-            <Route path="about" element={<About/>}   />
-            <Route path="contact"  />
-            <Route path="privacy-policy"  />
-            <Route path="terms-and-conditions"  />
-        </Route> */}
 
         {/* 404 routes */}
         <Route path='*' element={<NotFound />}></Route>
