@@ -8,7 +8,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel, AlertDialogAction } from "../ui/alert-dialog";
 import { Avatar, AvatarFallback } from '../ui/avatar'
 import { useDispatch, useSelector } from 'react-redux'
-import { logOutUser, resetTokenAndCredentials } from '@/store/auth-slice/authSlice'
+import { logOutUser } from '@/store/auth-slice/authSlice'
 import UserCartWrapper from './cartWrapper'
 import { fetchCartItems } from '@/store/shop-slice/cartSlice'
 
@@ -125,13 +125,13 @@ const HeaderRightContent = () => {
 
 
   const handleLogout = () => {
-    // dispatch(logOutUser());
-    // navigate("/");
-
-    //for deploy
-    dispatch(resetTokenAndCredentials);
-    sessionStorage.clear();
+    dispatch(logOutUser());
     navigate("/");
+
+    //for deploy on render
+    // dispatch(resetTokenAndCredentials);
+    // sessionStorage.clear();
+    // navigate("/");
   }
 
   useEffect(() => {
@@ -140,7 +140,7 @@ const HeaderRightContent = () => {
 
 
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-3">
       <Sheet open={openCartSheet} onOpenChange={setOpenCartSheet}>
         <Button
           className="cursor-pointer  relative"
@@ -241,9 +241,9 @@ const HeaderRightContent = () => {
         </DropdownMenu>
 
       ) : (
-        <div className="flex gap-2">
-          <Button className="cursor-pointer" variant='outline' onClick={() => navigate("/auth/login")}>Login</Button>
-          <Button className="cursor-pointer" onClick={() => navigate("/auth/register")}>Sign up</Button>
+        <div className="flex gap-1 md:gap-2">
+          <Button className="cursor-pointer  " variant='outline' onClick={() => navigate("/auth/login")}>Login</Button>
+          <Button className="cursor-pointer " onClick={() => navigate("/auth/register")}>Sign up</Button>
         </div>
       )}
     </div>
@@ -266,7 +266,7 @@ const ShoppingHeader = () => {
           <span className="font-bold">UniDrobe</span>
         </Link>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-1 md:gap-2 lg:hidden">
         <HeaderRightContent />
 
           <Sheet open={openMenu} onOpenChange={setOpenMenu}>

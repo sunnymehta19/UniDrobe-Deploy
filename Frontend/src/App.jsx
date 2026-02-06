@@ -42,13 +42,20 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    //for deploy on render
-    const token = JSON.parse(sessionStorage.getItem("token"));
+    dispatch(checkAuth());
 
-    dispatch(checkAuth(token));
+    //for deploy on render
+    // const token = JSON.parse(sessionStorage.getItem("token"));
+    // dispatch(checkAuth(token));
   }, [dispatch])
 
-  if (isLoading) return <Skeleton className="h-[20px] w-[100px] rounded-full" />
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Skeleton className="h-16 w-64 rounded-xl" />
+      </div>
+    )
+  }
 
   return (
     <>
