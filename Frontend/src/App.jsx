@@ -51,11 +51,25 @@ function App() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <Skeleton className="h-16 w-64 rounded-xl" />
+      <div className="p-4 sm:p-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="space-y-3">
+
+              <div className="aspect-[3/4]">
+                <Skeleton className="h-full w-full rounded-xl animate-pulse" />
+              </div>
+
+              <Skeleton className="h-4 w-3/4 animate-pulse" />
+
+              <Skeleton className="h-4 w-1/2 animate-pulse" />
+            </div>
+          ))}
+        </div>
       </div>
     )
   }
+
 
   return (
     <>
