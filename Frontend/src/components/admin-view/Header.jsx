@@ -16,7 +16,7 @@ const AdminHeader = ({ setOpen }) => {
     // dispatch(logOutUser());
 
     //for deploy on render
-    dispatch(resetTokenAndCredentials);
+    dispatch(resetTokenAndCredentials());
     sessionStorage.clear();
     navigate("/");
   }

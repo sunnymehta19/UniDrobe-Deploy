@@ -35,6 +35,7 @@ import ShippingPolicy from "./pages/shopping-view/ShippingPolicy"
 import CancellationAndReturns from "./pages/shopping-view/CancellationAndReturns"
 import RefundPolicy from "./pages/shopping-view/RefundPolicy"
 import TermsAndConditions from "./pages/shopping-view/TermsAndConditions"
+import { Card, CardContent, CardHeader } from "./components/ui/card"
 
 
 function App() {
@@ -49,27 +50,26 @@ function App() {
     dispatch(checkAuth(token));
   }, [dispatch])
 
-if (isLoading) {
+
+ if (isLoading) {
   return (
-    <div className="h-screen w-full overflow-hidden flex items-center justify-center bg-background">
-      <div className="w-full max-w-6xl px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <Card key={i} className="w-full">
-              <CardHeader className="space-y-2">
-                <Skeleton className="h-4 w-2/3" />
-                <Skeleton className="h-4 w-1/2" />
-              </CardHeader>
-              <CardContent>
-                <Skeleton className="aspect-[3/4] w-full rounded-md" />
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
+    <div className="h-screen w-screen overflow-hidden bg-background">
+      <Card className="h-full w-full rounded-none border-0">
+        <CardHeader className="space-y-4 px-8 pt-8">
+          <Skeleton className="h-6 w-1/3" />
+          <Skeleton className="h-6 w-1/4" />
+        </CardHeader>
+
+        <CardContent className="px-8 pb-8 h-full">
+          <Skeleton className="h-full w-full rounded-lg" />
+        </CardContent>
+      </Card>
     </div>
   )
 }
+
+
+
 
 
 

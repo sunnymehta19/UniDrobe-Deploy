@@ -129,7 +129,7 @@ const HeaderRightContent = () => {
     // navigate("/");
 
     //for deploy on render
-    dispatch(resetTokenAndCredentials);
+    dispatch(resetTokenAndCredentials());
     sessionStorage.clear();
     navigate("/");
   }
