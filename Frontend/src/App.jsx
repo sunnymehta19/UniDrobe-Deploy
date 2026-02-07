@@ -42,33 +42,43 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(checkAuth());
+    // dispatch(checkAuth());
 
     //for deploy on render
-    // const token = JSON.parse(sessionStorage.getItem("token"));
-    // dispatch(checkAuth(token));
+    const token = JSON.parse(sessionStorage.getItem("token"));
+    dispatch(checkAuth(token));
   }, [dispatch])
 
-  if (isLoading) {
-    return (
-      <div className="p-4 sm:p-6">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+ if (isLoading) {
+  return (
+    <div className="h-screen w-full overflow-hidden flex items-center justify-center bg-background">
+      <div className="w-full max-w-6xl px-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
           {Array.from({ length: 8 }).map((_, i) => (
-            <div key={i} className="space-y-3">
-
-              <div className="aspect-[3/4]">
-                <Skeleton className="h-full w-full rounded-xl animate-pulse" />
+            <div
+              key={i}
+              className="space-y-4 animate-pulse"
+              style={{ animationDelay: `${i * 80}ms` }}
+            >
+              <div className="relative overflow-hidden rounded-2xl aspect-[3/4] bg-muted">
+                <div className="absolute inset-0 bg-gradient-to-r from-muted via-muted/50 to-muted animate-[shimmer_1.5s_infinite]" />
               </div>
 
-              <Skeleton className="h-4 w-3/4 animate-pulse" />
+              <div className="h-4 w-3/4 rounded-full bg-muted relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-muted via-muted/50 to-muted animate-[shimmer_1.5s_infinite]" />
+              </div>
 
-              <Skeleton className="h-4 w-1/2 animate-pulse" />
+              <div className="h-4 w-1/2 rounded-full bg-muted relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-muted via-muted/50 to-muted animate-[shimmer_1.5s_infinite]" />
+              </div>
             </div>
           ))}
         </div>
       </div>
-    )
-  }
+    </div>
+  )
+}
+
 
 
   return (
