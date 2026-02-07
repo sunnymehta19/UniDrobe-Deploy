@@ -49,27 +49,36 @@ function App() {
     dispatch(checkAuth(token));
   }, [dispatch])
 
- if (isLoading) {
+if (isLoading) {
   return (
-    <div className="h-screen w-full overflow-hidden flex items-center justify-center bg-background">
-      <div className="w-full max-w-6xl px-4">
+    <div className="h-screen w-full overflow-hidden relative bg-gradient-to-br from-background via-muted/40 to-background flex items-center justify-center">
+      
+      <div className="absolute -top-40 -left-40 h-[400px] w-[400px] rounded-full bg-primary/20 blur-3xl" />
+      <div className="absolute -bottom-40 -right-40 h-[400px] w-[400px] rounded-full bg-secondary/20 blur-3xl" />
+
+      <div className="relative z-10 w-full max-w-5xl px-6">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
           {Array.from({ length: 8 }).map((_, i) => (
             <div
               key={i}
-              className="space-y-4 animate-pulse"
-              style={{ animationDelay: `${i * 80}ms` }}
+              className="relative rounded-2xl backdrop-blur-xl bg-white/5 border border-white/10 shadow-lg
+                         animate-[float_2.8s_ease-in-out_infinite]"
+              style={{ animationDelay: `${i * 120}ms` }}
             >
-              <div className="relative overflow-hidden rounded-2xl aspect-[3/4] bg-muted">
-                <div className="absolute inset-0 bg-gradient-to-r from-muted via-muted/50 to-muted animate-[shimmer_1.5s_infinite]" />
-              </div>
+              <div className="p-3 space-y-4">
+                
+                <div className="aspect-[3/4] rounded-xl bg-muted relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-[shimmer_1.6s_infinite]" />
+                </div>
 
-              <div className="h-4 w-3/4 rounded-full bg-muted relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-muted via-muted/50 to-muted animate-[shimmer_1.5s_infinite]" />
-              </div>
+                <div className="h-4 w-3/4 rounded-full bg-muted relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-[shimmer_1.6s_infinite]" />
+                </div>
 
-              <div className="h-4 w-1/2 rounded-full bg-muted relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-muted via-muted/50 to-muted animate-[shimmer_1.5s_infinite]" />
+                <div className="h-4 w-1/2 rounded-full bg-muted relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-[shimmer_1.6s_infinite]" />
+                </div>
+
               </div>
             </div>
           ))}
@@ -78,6 +87,7 @@ function App() {
     </div>
   )
 }
+
 
 
 
