@@ -51,22 +51,38 @@ function App() {
   }, [dispatch])
 
 
- if (isLoading) {
+if (isLoading) {
   return (
     <div className="h-screen w-screen overflow-hidden bg-background">
-      <Card className="h-full w-full rounded-none border-0">
-        <CardHeader className="space-y-4 px-8 pt-8">
+      <Card className="h-full w-full rounded-none border-0 flex flex-col">
+        
+        {/* Header */}
+        <CardHeader className="space-y-4 px-8 pt-8 shrink-0">
           <Skeleton className="h-6 w-1/3" />
           <Skeleton className="h-6 w-1/4" />
         </CardHeader>
 
-        <CardContent className="px-8 pb-8 h-full">
-          <Skeleton className="h-full w-full rounded-lg" />
+        {/* Content */}
+        <CardContent className="px-8 pb-8 flex-1 overflow-hidden">
+          <div className="h-full grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <Card key={i} className="h-full">
+                <CardContent className="p-4 space-y-3 h-full">
+                  <Skeleton className="h-4 w-2/3" />
+                  <Skeleton className="h-4 w-1/2" />
+                  <Skeleton className="flex-1 w-full rounded-md" />
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </CardContent>
+
       </Card>
     </div>
   )
 }
+
+
 
 
 

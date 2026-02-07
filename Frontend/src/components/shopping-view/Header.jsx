@@ -229,8 +229,8 @@ const HeaderRightContent = () => {
                 </AlertDialogHeader>
 
                 <AlertDialogFooter>
-                  <AlertDialogCancel>Cancel</AlertDialogCancel>
-                  <AlertDialogAction onClick={handleLogout}>
+                  <AlertDialogCancel className="cursor-pointer">Cancel</AlertDialogCancel>
+                  <AlertDialogAction className="cursor-pointer" onClick={handleLogout}>
                     Yes, Logout
                   </AlertDialogAction>
                 </AlertDialogFooter>
