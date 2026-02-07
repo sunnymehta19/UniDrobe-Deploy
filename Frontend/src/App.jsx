@@ -53,8 +53,8 @@ if (isLoading) {
   return (
     <div className="h-screen w-full overflow-hidden relative bg-gradient-to-br from-background via-muted/40 to-background flex items-center justify-center">
       
-      <div className="absolute -top-40 -left-40 h-[400px] w-[400px] rounded-full bg-primary/20 blur-3xl" />
-      <div className="absolute -bottom-40 -right-40 h-[400px] w-[400px] rounded-full bg-secondary/20 blur-3xl" />
+      <div className="absolute -top-40 -left-40 h-[300px] w-[300px] rounded-full bg-primary/20 blur-3xl" />
+      <div className="absolute -bottom-40 -right-40 h-[300px] w-[300px] rounded-full bg-secondary/20 blur-3xl" />
 
       <div className="relative z-10 w-full max-w-5xl px-6">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
